@@ -10,6 +10,7 @@ import {
   NewIcon,
   NewFillIcon,
 } from './ui/icons';
+import ColorButton from './ui/ColorButton';
 
 const menu = [
   {
@@ -33,19 +34,19 @@ export default function Navbar() {
   const pathName = usePathname();
 
   return (
-    <div className='flex justify-between items-center border-b-2 border-gray-300 p-4'>
+    <div className='flex justify-between items-center px-6'>
       <Link href={'/'}>
         <h1 className='text-3xl font-bold'>Instantgram</h1>
       </Link>
-      <nav className='flex gap-4 text-3xl'>
-        <ul>
+      <nav>
+        <ul className='flex gap-4 items-center p-4'>
           {menu.map(({ href, icon, clickedIcon }) => (
             <li key={href}>
               <Link href={href}>{pathName === href ? clickedIcon : icon}</Link>
             </li>
           ))}
+          <ColorButton text='Sign in' onClick={() => {}} />
         </ul>
-        <button className='text-xl border border-red-400'>Sign in</button>
       </nav>
     </div>
   );
