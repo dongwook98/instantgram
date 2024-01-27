@@ -13,7 +13,7 @@ type Props = {
 export default async function SignInPage({
   searchParams: { callbackUrl },
 }: Props) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions); // 서버에서 세션정보 가져오는 함수
 
   if (session) {
     redirect('/');

@@ -33,10 +33,9 @@ const menu = [
 ];
 
 export default function Navbar() {
-  const pathName = usePathname();
-  const { data: session } = useSession();
+  const pathName = usePathname(); // 현재 url 경로 상태를 리턴하는 함수
+  const { data: session } = useSession(); // 클라이언트에서 세션정보 리턴하는 함수
   const user = session?.user;
-  console.log(user);
 
   return (
     <div className='flex justify-between items-center px-6'>
@@ -53,7 +52,7 @@ export default function Navbar() {
           {user && (
             <li>
               <Link href={`/user/${user.username}`}>
-                <Avatar image={user.image} />
+                <Avatar image={user.image} size='small' highlight />
               </Link>
             </li>
           )}
